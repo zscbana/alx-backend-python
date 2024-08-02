@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-'''Task 2's module.'''
-import math
+'''Task 3's module.'''
 
 
-def floor(n: float) -> int:
+def floor(n: float) -> float:
     '''Return the largest integer less than or equal to n.'''
-    return int(n)
+    return math.floor(n)
