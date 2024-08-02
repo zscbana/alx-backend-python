@@ -2,6 +2,6 @@
 '''Task 3's module.'''
 
 
-def floor(n: float) -> float:
-    '''Return the largest integer less than or equal to n.'''
-    return math.floor(n)
+def to_str(n: float) -> str:
+    """returns the string representation of the float."""
+    return str(n)
