@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ synchronous coroutine that takes in an integer argument """
 import asyncio
 import random
