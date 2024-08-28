@@ -26,8 +26,10 @@ class TestGithubOrgClient(unittest.TestCase):
     @patch(
         "client.get_json",
     )
-    def test_org(self, org_name: str, expected_response: Dict, mock_get_json: MagicMock) -> None:
-        """Checks that the `org` method returns the correct organization data."""
+    def test_org(self, org_name: str, expected_response: Dict,
+                 mock_get_json: MagicMock) -> None:
+        """Checks that the `org` method returns the correct
+        organization data."""
         mock_get_json.return_value = MagicMock(return_value=expected_response)
         client = GithubOrgClient(org_name)
         self.assertEqual(client.org(), expected_response)
@@ -51,7 +53,8 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch("client.get_json")
     def test_public_repos(self, mock_get_json: MagicMock) -> None:
-        """Tests retrieval of public repositories using the `public_repos` method."""
+        """Tests retrieval of public repositorie
+        using the `public_repos` method."""
         test_payload = {
             'repos_url': "https://api.github.com/users/google/repos",
             'repos': [
@@ -109,8 +112,10 @@ class TestGithubOrgClient(unittest.TestCase):
         ({'license': {'key': "bsd-3-clause"}}, "bsd-3-clause", True),
         ({'license': {'key': "bsl-1.0"}}, "bsd-3-clause", False),
     ])
-    def test_has_license(self, repository: Dict, license_key: str, expected_result: bool) -> None:
-        """Validates whether a repository has a specific license using `has_license`."""
+    def test_has_license(self, repository: Dict, license_key: str,
+                         expected_result: bool) -> None:
+        """Validates whether a repository has a specific
+        license using `has_license`."""
         client = GithubOrgClient("google")
         has_license = client.has_license(repository, license_key)
         self.assertEqual(has_license, expected_result)
